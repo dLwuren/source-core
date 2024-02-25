@@ -1,0 +1,267 @@
+:root {
+  --backgroubd: rgba(255, 180, 3);
+  --sub-backgroubd: rgba(255, 180, 3, 0.7);
+  --shadow: rgba(285, 205, 3);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  /* user-select: none; */
+}
+
+::selection {
+  background-color: var(--sub-backgroubd);
+  color: #ffffff;
+}
+
+/* -------------------- 标题栏  -------------------- */
+
+#g-title {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  -webkit-app-region: drag;
+  background: var(--backgroubd);
+}
+
+#g-title>div {
+  margin-top: 3px;
+  margin-left: 5px;
+  padding: 1px;
+}
+
+#g-title>div>i:hover {
+  background-color: var(--shadow);
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+/* -------------------- 标题按钮图标  -------------------- */
+
+#pin i {
+  content: url('../assets/固定.svg');
+}
+
+#minimize i {
+  content: url('../assets/最小化.svg');
+}
+
+#maximize i {
+  content: url('../assets/最大化.svg');
+}
+
+#close i {
+  content: url('../assets/关闭.svg');
+}
+
+/* -------------------- 表单基础布局  -------------------- */
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* -------------------- 文字  -------------------- */
+
+.form-text {
+  font-size: 13px;
+  font-weight: 550;
+  padding-left: 13px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  color: #000000;
+}
+
+/* -------------------- 输入框  -------------------- */
+
+.form-input {
+  width: 90%;
+  height: 24px;
+  border: 2px solid var(--backgroubd);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 2px solid var(--backgroubd);
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--sub-backgroubd);
+}
+
+/* -------------------- 多行文本  -------------------- */
+
+.form-textarea {
+  width: 90%;
+  height: 150px;
+  border: 2px solid var(--backgroubd);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  resize: none;
+  /* overflow: hidden; */
+}
+
+.form-textarea:focus {
+  outline: none;
+  border: 2px solid var(--backgroubd);
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--sub-backgroubd);
+}
+
+.form-textarea::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+.form-textarea:hover::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+.form-textarea:hover::-webkit-scrollbar-thumb {
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+/* -------------------- 单选框  -------------------- */
+
+.form-radio {
+  padding-left: 13px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* -------------------- 多选框  -------------------- */
+
+.form-checkbox {
+  padding-left: 13px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 18px;
+  position: relative;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d9d9d9;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid var(--backgroubd);
+  color: var(--sub-backgroubd);
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* -------------------- 下拉列表  -------------------- */
+
+.form-select {
+  background: transparent;
+  border: 2px solid var(--backgroubd);
+  outline: none;
+  line-height: 40px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0 10px;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-select>option {
+  background: rgb(249, 249, 249);
+  color: rgb(36, 31, 31);
+}
+
+/* -------------------- 按钮  -------------------- */
+
+.form-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-button {
+  --color: var(--backgroubd);
+  font-family: inherit;
+  display: inline-block;
+  width: 5em;
+  height: 1.5em;
+  line-height: 1em;
+  margin: 20px;
+
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color .5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+
+  background-color: #fff;
+}
+
+.form-button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.form-button:hover {
+  color: #fff;
+}
+
+.form-button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+}
+
+.form-button:hover:before {
+  top: -30px;
+  left: -30px;
+}

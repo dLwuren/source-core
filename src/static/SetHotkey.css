@@ -1,0 +1,211 @@
+:root {
+  --backgroubd: rgba(210, 210, 210);
+  --card-background: rgb(255, 255, 255);
+  --shadow: rgba(70, 70, 70, 0.2);
+
+  /* 作用于 lulu ui 库的组件 */
+  --ui-blue: #ffd549 !important;
+  /* hover的颜色 */
+  --ui-list-hover: #fadf95d8 !important;
+  /* selected的颜色 */
+  --ui-list-selected: #fccc48ce !important;
+}
+
+body {
+  margin: 0;
+  height: calc(100vh - 32px);
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+
+  background-image: url('../assets/快捷键页背景.svg');
+  /* 图片保持纵横比、不重复出现、居中 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: center center; */
+}
+
+/* -------------------- 标题  -------------------- */
+
+#g-title {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  -webkit-app-region: drag;
+  background: var(--backgroubd);
+}
+
+#g-title>div {
+  margin-top: 3px;
+  margin-left: 5px;
+  padding: 1px;
+}
+
+#g-title>div>i:hover {
+  background-color: var(--shadow);
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+/* -------------------- 标题按钮图标  -------------------- */
+
+#pin i {
+  content: url('../assets/固定.svg');
+}
+
+#minimize i {
+  content: url('../assets/最小化.svg');
+}
+
+#maximize i {
+  content: url('../assets/最大化.svg');
+}
+
+#close i {
+  content: url('../assets/关闭.svg');
+}
+
+/* -------------------- 编辑器容器样式  -------------------- */
+
+.m-editor-box {
+  width: 96%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 5px;
+  overflow: auto;
+  /* 毛玻璃质感 */
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+  -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  color: rgb(255, 255, 255);
+}
+
+.m-editor-box::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+.m-editor-box:hover::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+.m-editor-box:hover::-webkit-scrollbar-thumb {
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+/* -------------------- codemirror 编辑器样式 -------------------- */
+
+.cm-editor {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  outline: none !important;
+  display: flex;
+  background-color: transparent;
+}
+
+.cm-gutters {
+  background-color: transparent !important;
+  border-color: #A5ADB7 !important
+}
+
+/* -------------------- 头、尾  -------------------- */
+
+.m-head p {
+  margin-left: 20px;
+}
+
+.m-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.m-footer button {
+  margin-right: 20px;
+}
+
+.u-button-ok {
+  background-color: #fbcb46 !important;
+  border: none !important;
+}
+
+/* -------------------- 创建快捷键界面  -------------------- */
+
+#get-hotkey {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  border-radius: 40px;
+  background-color: #fdcd48;
+  border: 1px solid #fdcd48;
+  margin-bottom: 5px;
+}
+
+#get-hotkey:hover {
+  background-color: #f7f9fa;
+  color: #fdcd48;
+  border: 1px solid #fdcd48;
+  transition: 0.5s;
+}
+
+#get-hotkey:active {
+  background-color: #fdcd48;
+  color: #f7f9fa;
+  border: 1px solid #f7f9fa;
+  transition: 0.5s;
+}
+
+.ui-dialog-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-select-button {
+  border: 1px solid #f9de94 !important;
+}
+
+.ui-select-button:hover {
+  border: 1px solid #f9de94 !important;
+  box-shadow: #f9de94 0 0 5px !important;
+}
+
+.ui-select-icon {
+  transform: translateY(-6000px) !important;
+  filter: drop-shadow(var(--ui-blue) 0 6000px) !important;
+}
+
+.ui-dialog-body form label {
+  margin-top: 10px;
+}
+
+.ui-dialog-body form input {
+  border: 1px solid #f9de94;
+}
+
+.ui-dialog-body form input:focus {
+  border: 1px solid #f9de94;
+}
+
+.ui-dialog-body form input:hover {
+  border: 1px solid #f9de94;
+  box-shadow: #f9de94 0 0 5px;
+}
+
+.ui-dialog-body form button {
+  margin-top: 20px;
+}

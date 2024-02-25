@@ -1,0 +1,411 @@
+:root {
+  --backgroubd: rgb(249, 249, 249);
+  --card-background: rgb(255, 255, 255);
+  --shadow: rgba(70, 70, 70, 0.13);
+  --theme-color: rgba(255, 180, 3, 0.7);
+}
+
+body {
+  margin: 0;
+  user-select: none;
+}
+
+::selection {
+  background-color: var(--theme-color);
+  color: #ffffff;
+}
+
+#g-background {
+  width: 100%;
+  height: 100vh;
+  background: var(--backgroubd);
+  display: flex;
+  flex-direction: column;
+  z-index: -10;
+}
+
+/* -------------------- 标题栏  -------------------- */
+
+#g-title {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  -webkit-app-region: drag;
+}
+
+#g-title>div {
+  margin-top: 3px;
+  margin-left: 5px;
+  padding: 1px;
+}
+
+#g-title>div:hover {
+  background-color: var(--shadow);
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+#g-content {
+  width: 100%;
+  height: calc(100vh - 32px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  align-content: flex-start
+}
+
+#g-content::-webkit-scrollbar {
+  display: none;
+}
+
+#help {
+  content: url('../assets/帮助.svg');
+}
+
+#updata {
+  content: url('../assets/更新.svg');
+}
+
+#set-hotkey {
+  content: url('../assets/快捷键.svg');
+}
+
+#setting {
+  content: url('../assets/设置.svg');
+}
+
+#close {
+  content: url('../assets/关闭.svg');
+}
+
+/* -------------------- 卡片  -------------------- */
+
+.m-card {
+  width: calc(100% - 28px);
+  height: 170px;
+  border-radius: 10px;
+  background: var(--card-background);
+  margin: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+  border: 1px solid rgb(245, 245, 245);
+}
+
+.m-card:hover {
+  box-shadow: 1px 5px 8px 0px var(--shadow);
+}
+
+.m-card_fold {
+  height: 36px;
+}
+
+.m-card .m-name {
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  z-index: 5;
+}
+
+.m-card .m-name p {
+  margin: 8px;
+  font-size: 1em;
+  flex-grow: 1;
+  color: rgb(30, 30, 30);
+}
+
+.m-card .m-name div {
+  font-size: 1em;
+  margin-right: 3px;
+  margin-top: 3px;
+  height: 25px;
+  width: 25px;
+  content: url('../assets/可见性.svg');
+}
+
+.m-card .m-name div:hover {
+  background-color: var(--shadow);
+  border-radius: 50%;
+  transition: 0.4s ease;
+}
+
+#m-test-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* -------------------- 按钮组  -------------------- */
+
+.m-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  height: 120px;
+  overflow: auto;
+  margin-top: 13px;
+}
+
+.m-long-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  height: 120px;
+  overflow: auto;
+  margin-top: 13px;
+}
+
+.m-buttons::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+.m-buttons:hover::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+.m-buttons:hover::-webkit-scrollbar-thumb {
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+
+.m-buttons_hidden {
+  visibility: hidden;
+}
+
+/* -------------------- 按钮  -------------------- */
+
+.u-button {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.u-button>div {
+  font-size: 10px;
+  width: 40px;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #515151;
+}
+
+.u-button>button {
+  padding: 0;
+  outline: none;
+  background: transparent;
+  border: 1px solid var(--theme-color);
+  background-color: var(--theme-color);
+  border-radius: .4em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: all .3s;
+  font-size: .7em;
+  width: 40px;
+  height: 40px;
+}
+
+.u-button>button:hover {
+  outline: none;
+  border-radius: 5px;
+  width: 33px;
+  height: 33px;
+  box-shadow: 3px 3px 0 #e4e3e3;
+}
+
+.u-long-button {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.u-long-button>button {
+  display: flex;
+  flex-direction: column;
+
+  --color: var(--theme-color);
+  font-family: inherit;
+  width: 120px;
+
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color .5s;
+  z-index: 1;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+  background-color: #fff;
+}
+
+.u-long-button>button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.u-long-button>button:hover {
+  color: #fff;
+  transition: all .6s;
+  box-shadow: 3px 3px 0 #e4e3e3;
+}
+
+.u-long-button>button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+}
+
+.u-long-button>button:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+/* -------------------- 按钮图标  -------------------- */
+#auto-task i {
+  content: url('../assets/自动任务.svg');
+}
+
+#win-info i {
+  content: url('../assets/窗口信息.svg');
+}
+
+#mind-mapping i {
+  content: url('../assets/思维导图.svg');
+}
+
+/* -------------------- 背景图、页脚  -------------------- */
+
+.m-wave {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  bottom: 0;
+  content: url('../assets/波浪.svg');
+}
+
+.m-footer {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  font-size: 13px;
+}
+
+/* -------------------- 设置菜单  -------------------- */
+/* 菜单 */
+.m-menu {
+  position: fixed;
+  z-index: 10;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 菜单内容 */
+.m-menu-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  transition: all .2s;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.u-menu-title {
+  font-size: 17px;
+  font-weight: bold;
+  font-family: "Microsoft YaHei";
+  color: rgba(0, 0, 0, 0.8);
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
+}
+
+.u-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
+.u-item>div {
+  font-family: Microsoft YaHei;
+  font-size: 14px;
+  font-weight: bold;
+  color: #515151;
+}
+
+.u-input {
+  outline-style: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 6px;
+  width: 65%;
+  height: 10px;
+  font-size: 12px;
+  font-family: "Microsoft YaHei";
+}
+
+.u-input:focus {
+  border-color: rgba(255, 180, 3, 0.5);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 180, 3, 0.5);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 180, 3, 0.5);
+}
+
+#u-save {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#u-save>button {
+  background-color: var(--theme-color);
+  border: none;
+  color: white;
+  padding: 2px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+#u-save>button:hover {
+  background-color: var(--theme-color);
+  color: white;
+}

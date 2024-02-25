@@ -1,0 +1,32 @@
+{
+  "name": "yh",
+  "uuid": "8d148e94-5a19-452d-a113-88aadf92fea5",
+  "debug": {
+    "resource": "dist",
+    "entry": "http://localhost:8080/"
+  },
+  "build": {
+    "resource": "dist"
+  },
+  "window": {
+    "title": "源核",
+    "size":{
+      "width": 300,
+      "height": 400
+    },
+    "minSize": {
+      "width": 300,
+      "height": 400
+    },
+    "alwaysOnTop": false,
+    "decorations": true,
+    "devtools": true
+  },
+  "shortcuts": [
+    {
+      "accelerator": "ctrl+shift+alt+up",
+      "id": 0
+    }
+  ],
+  "focused": false
+}

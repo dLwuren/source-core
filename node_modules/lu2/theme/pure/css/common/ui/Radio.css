@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/**
+ *
+ * @Radio.css
+ * @author zhangxinxu
+ * @create 15-06-17
+ * @edit 17-06-14 focusable
+**/
+input[type="radio"]:not([ui-visible]) {
+    position: absolute;
+    opacity: 0;
+    width: 20px; height: 20px;
+    cursor: pointer;
+    z-index: -1;
+}
+
+[ui-visible] + .ui-radio {
+    display: none;
+}
+
+.ui-radio {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border: 1px solid #d0d0d5;
+    border-radius: 50%;
+    background-color: #fff;
+    box-sizing: border-box;
+    vertical-align: -.5ex;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: border-color .2s;
+    overflow: hidden;
+}
+
+.ui-radio + label {
+    margin-left: 5px;
+}
+
+:not(:disabled) + .ui-radio:hover {
+    border-color: #ababaf;
+}
+
+:focus + .ui-radio {
+    border-color: #2a80eb;
+}
+
+.ui-radio::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 4px auto 0;
+    border-radius: 50%;
+    background-color: #2a80eb;
+    visibility: hidden;
+}
+
+:checked + .ui-radio::before {
+    visibility: visible;
+}
+
+:disabled + .ui-radio {
+    border-color: #ababaf;
+    opacity: .38;
+}
+
+/* error */
+.error.ui-radio {
+    border-color: #eb4646;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ui-radio {
+        transition: none;
+    }
+}

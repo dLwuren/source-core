@@ -1,0 +1,73 @@
+:root {
+  --backgroubd: rgba(210, 210, 210);
+  --card-background: rgb(255, 255, 255);
+  --shadow: rgba(70, 70, 70, 0.2);
+}
+
+body {
+  margin: 0;
+  height: calc(100vh - 32px);
+  width: 100%;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* -------------------- 标题  -------------------- */
+
+#g-title {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  -webkit-app-region: drag;
+  background: var(--backgroubd);
+}
+
+#g-title>div {
+  margin-top: 3px;
+  margin-left: 5px;
+  padding: 1px;
+}
+
+#g-title>div>i:hover {
+  background-color: var(--shadow);
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+/* -------------------- 标题按钮图标  -------------------- */
+
+#pin i {
+  content: url('../assets/固定.svg');
+}
+
+#minimize i {
+  content: url('../assets/最小化.svg');
+}
+
+#maximize i {
+  content: url('../assets/最大化.svg');
+}
+
+#close i {
+  content: url('../assets/关闭.svg');
+}
+
+/* -------------------- 画布  -------------------- */
+
+#mindMapContainer {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#mindMapContainer * {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}

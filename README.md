@@ -2,9 +2,6 @@
   <h1>源核<img src="./screenshots/logo.svg" alt="Logo" width="50" height="50"></img></h1>
 </div>
 
-「源核」是一款 Windows 平台下的效率工具，可以让用户通过「可视化编程」的方式轻松创建自动化任务。
-
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -23,5 +20,7 @@
 [license-shield]: https://img.shields.io/github/license/dLwuren/source-core.svg?style=flat-square
 [license-url]: https://github.com/dLwuren/source-core/blob/master/LICENSE.txt
 
+「源核」是一款 Windows 平台下的效率工具，可以让用户通过「可视化编程」的方式轻松创建自动化任务。
 
-
+# 获取源核
+下载最新的安装包：

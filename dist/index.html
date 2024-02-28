@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<script defer src="index.js"></script></head>
+
+<body>
+  <div id="g-background">
+    <div id="g-title">
+      <div id="help"><i></i></div>
+      <div id="updata"><i></i></div>
+      <div id="set-hotkey"><i></i></div>
+      <div id="setting"><i></i></div>
+      <div id="close"><i></i></div>
+    </div>
+
+    <div id="g-content">
+      <div class="m-card m-card_fold">
+        <!-- <div class="m-card"> -->
+        <div class="m-name">
+          <p>内置工具</p>
+          <div class="visible m-visible m-visible_close"></div>
+        </div>
+        <div class="m-buttons">
+
+          <div class="u-button">
+            <button id="auto-task"><i></i></button>
+            <div>自动任务</div>
+          </div>
+          <div class="u-button">
+            <button id="win-info"><i></i></button>
+            <div>窗口信息</div>
+          </div>
+          <div class="u-button">
+            <button id="mind-mapping"><i></i></button>
+            <div>思维导图</div>
+          </div>
+
+          <!-- <div class="u-button">
+            <button id="dev">DEV</button>
+            <div>dev工具</div>
+          </div> -->
+
+        </div>
+      </div>
+
+      <div id="m-test-card"></div>
+
+      <div class="m-wave"></div>
+      <div class="m-footer">—— SOURCE CORE ——</div>
+    </div>
+
+    <div id="g-menu"></div>
+
+  </div>
+
+  <script src="./index.ts"></script>
+  <script type="text/javascript" charset="utf-8">
+    // 样式代码
+    document.getElementById('g-background').addEventListener('click', (e) => {
+      if (e.target.classList.contains('m-visible')) {
+        if (e.target.classList.contains('m-visible_close')) {
+          e.target.classList.remove('m-visible_close');
+          e.target.parentNode.parentNode.classList.remove('m-card_fold');
+        } else {
+          e.target.classList.add('m-visible_close');
+          e.target.parentNode.parentNode.classList.add('m-card_fold');
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

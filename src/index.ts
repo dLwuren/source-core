@@ -35,7 +35,6 @@ const updateTaskList = () => {
   }).then((response) => {
     if (!response) return
     response.json().then((data) => {
-      console.log('更新任务列表', data)
       renderListHTML(data)
     }).catch(e => console.log('请求错误', e))
   }).catch(e => console.log('请求错误', e))
@@ -107,6 +106,11 @@ Niva.api.process.pid().then((pid) => {
   })
 
   updateTaskList()
+
+  // 运行 ahk
+  post('/starter', {
+    "type": "runStarter",
+  }).catch(e => console.log('请求错误', e))
 })
 
 connectSocket()

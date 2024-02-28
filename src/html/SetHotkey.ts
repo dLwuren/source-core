@@ -311,9 +311,12 @@ document.getElementById('save').addEventListener('click', (event) => {
   post('/file', {
     "type": "saveConfig",
     "code": content
-  })
+  }).then(res => {
+    updataStarter()
 
-  updataStarter()
+    // @ts-ignore
+    new LightTip('保存成功', 'success')
+  })
 })
 
 // ----------------------- 初始化生成代码界面 -----------------------

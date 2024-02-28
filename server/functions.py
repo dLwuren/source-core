@@ -71,11 +71,113 @@ def pictureCenter(path):
     return new_btm
 
 
+# -------------- 文件操作 --------------
+
+
+def read_file(path):
+    if os.path.isfile(path):
+        with open(path, "r", encoding="utf-8") as file:
+            data = file.read()
+            return data
+
+
+def save_js(data):
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".js",
+        filetypes=[("Js", "*.js")],
+    )
+    if file_path is not None:
+        with open(file_path, "w", encoding="utf-8") as file:
+            file.write(data)
+
+
+def save_task(data):
+    path = get_config()["file_path"]
+    if path is not None:
+        print(path)
+
+
+# 追加文件
+def add_file(data):
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".json",
+        filetypes=[("Json", "*.json")],
+    )
+    if file_path is not None:
+        with open(file_path, "a", encoding="utf-8") as file:
+            file.write(data)
+
+
+# 保存文件 / 改写文件
+def write_file(path, content):
+    if os.path.isfile(path):
+        with open(path, "w", encoding="utf-8") as file:
+            file.write(content)
+
+
+# 删除文件 or 文件夹
+def delete_file(path):
+    # 确保文件存在才删除
+    if os.path.isfile(path):
+        os.remove(path)
+    if os.path.isdir(path):
+        shutil.rmtree(path)  # 删除此路径的文件夹
+
+
+# 重命名文件 or 文件夹
+def rename_file(path, new_name):
+    if os.path.exists(path):
+        os.rename(path, new_name)
+
+
+# 移动文件
+def move_file(path, new_name):
+    if os.path.exists(path):
+        shutil.move(path, new_name)
+
+
+# 新建文件 or 文件夹
+# content 文件内容
+def new_file(name, path, isDir=False, content=""):
+    if os.path.isdir(path):
+        if isDir:
+            os.makedirs(path + "\\" + name)
+        else:
+            print("新建文件夹", path + "\\" + name)
+            with open(path + "\\" + name, "w", encoding="utf-8") as file:
+                file.write(content)
+
+
+# 清理垃圾文件夹
+# 程序运行时会产生大量空文件夹，这些属于垃圾文件夹
+def clear_trash_folder(path):
+    trash_files = []
+    for item in os.listdir(path):
+        item_path = os.path.join(path, item)
+        if os.path.isdir(item_path):
+            # 获取空文件夹
+            if len(os.listdir(item_path)) == 0:
+                trash_files.append(item_path)
+    for trash_file in trash_files:
+        shutil.rmtree(trash_file)  # 删除此路径的文件夹
+
+
 # -------------- 应用配置 --------------
 
 
-configFile_path = "store/store.json"
-configFile_path = resource_path(configFile_path)
+app_path = os.path.dirname(os.path.realpath(sys.argv[0]))  # 应用所在的路径
+configFile_path = app_path + "\store.json"
+
+
+# 如果源核.exe同级目录下不存在 store.json，则新建一个
+def create_store_json(path):
+    if not os.path.exists(path):
+        new_file(
+            "store.json",
+            path[: -len("/store.json")],
+            False,
+            '{"file_path": "", "hotkey_code": ""}',
+        )
 
 
 # 存储配置
@@ -149,95 +251,3 @@ def update_starter():
             + content
         )
         file.write(content)
-
-
-# -------------- 文件操作 --------------
-
-
-def read_file(path):
-    if os.path.isfile(path):
-        with open(path, "r", encoding="utf-8") as file:
-            data = file.read()
-            return data
-
-
-def save_js(data):
-    file_path = filedialog.asksaveasfilename(
-        defaultextension=".js",
-        filetypes=[("Js", "*.js")],
-    )
-    if file_path is not None:
-        with open(file_path, "w", encoding="utf-8") as file:
-            file.write(data)
-
-
-def save_task(data):
-    path = get_config()["file_path"]
-    if path is not None:
-        print(path)
-
-
-# 追加文件
-def add_file(data):
-    file_path = filedialog.asksaveasfilename(
-        defaultextension=".json",
-        filetypes=[("Json", "*.json")],
-    )
-    if file_path is not None:
-        with open(file_path, "a", encoding="utf-8") as file:
-            file.write(data)
-
-
-# 保存文件 / 改写文件
-def write_file(path, content):
-    if os.path.isfile(path):
-        with open(path, "w", encoding="utf-8") as file:
-            file.write(content)
-
-
-# 删除文件 or 文件夹
-def delete_file(path):
-    # 确保文件存在才删除
-    if os.path.isfile(path):
-        os.remove(path)
-    if os.path.isdir(path):
-        shutil.rmtree(path)  # 删除此路径的文件夹
-
-
-# 重命名文件 or 文件夹
-def rename_file(path, new_name):
-    if os.path.exists(path):
-        os.rename(path, new_name)
-
-
-# 移动文件
-def move_file(path, new_name):
-    if os.path.exists(path):
-        shutil.move(path, new_name)
-
-
-# 新建文件 or 文件夹
-# content 文件内容
-def new_file(name, path, isDir=False, content=""):
-    print("是否为文件夹", os.path.isdir(path), path)
-    if os.path.isdir(path):
-        if isDir:
-            os.makedirs(path + "\\" + name)
-        else:
-            print("新建文件夹", path + "\\" + name)
-            with open(path + "\\" + name, "w", encoding="utf-8") as file:
-                file.write(content)
-
-
-# 清理垃圾文件夹
-# 程序运行时会产生大量空文件夹，这些属于垃圾文件夹
-def clear_trash_folder(path):
-    trash_files = []
-    for item in os.listdir(path):
-        item_path = os.path.join(path, item)
-        if os.path.isdir(item_path):
-            # 获取空文件夹
-            if len(os.listdir(item_path)) == 0:
-                trash_files.append(item_path)
-    for trash_file in trash_files:
-        shutil.rmtree(trash_file)  # 删除此路径的文件夹

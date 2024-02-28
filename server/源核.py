@@ -30,6 +30,8 @@ socketio = SocketIO(app, async_mode="threading", cors_allowed_origins="*")
 # 打包时要使用该函数修改程序中的路径
 resource_path = functions.resource_path
 
+# 在应用同级文件创建一个 store.json 以实现数据持久化
+functions.create_store_json(functions.configFile_path)
 functions.update_starter()
 
 # 启动启动器进程
@@ -79,10 +81,10 @@ def ahk():
 
         exe_path = "ahk/AutoHotkey64.exe"
         ahk_script = "ahk/index.ahk"
-        
+
         exe_path = resource_path(exe_path)
         ahk_script = resource_path(ahk_script)
-        
+
         arguments = paraList
         command = [exe_path, ahk_script] + arguments
         print("命令行", command, paraList)
@@ -237,7 +239,6 @@ def socket():
         match data["type"]:
             case "runTask":
                 if data["path"] is not None:
-                    print(data["path"])
                     with open(data["path"], "r", encoding="utf-8") as file:
                         code = file.read()
                     socketio.emit("runTask", {"code": code})

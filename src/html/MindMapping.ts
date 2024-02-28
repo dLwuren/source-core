@@ -2,6 +2,7 @@
 import MindMap from "simple-mind-map";
 import '../static/MindMapping.css'
 
+// 思维导图插件
 import Drag from 'simple-mind-map/src/plugins/Drag.js'
 import Select from 'simple-mind-map/src/plugins/Select.js'
 import KeyboardNavigation from 'simple-mind-map/src/plugins/KeyboardNavigation.js'

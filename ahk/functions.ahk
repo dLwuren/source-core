@@ -421,7 +421,7 @@ InitTrayMenu() {
   A_TrayMenu.Delete()
   A_TrayMenu.Add("退出", TrayMenuHandler)
   A_IconTip := "启动器"
-  TraySetIcon("./icons/源核logo.ico")
+  TraySetIcon("./icons/logo.ico")
 }
 
 /**

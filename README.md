@@ -1,7 +1,6 @@
 <div>
   <h1>源核<img src="./screenshots/logo.svg" alt="Logo" width="50" height="50"></img></h1>
 </div>
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -22,5 +21,5 @@
 
 「源核」是一款 Windows 平台下的效率工具，可以让用户通过「可视化编程」的方式轻松创建自动化任务。
 
-## 获取源核
-下载最新的安装包：
+
+

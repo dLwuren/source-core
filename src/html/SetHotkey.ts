@@ -242,7 +242,6 @@ const form = document.getElementById('form') as HTMLFormElement
 document.getElementById('help').addEventListener('click', () => {
   const html = `
   <h4>👩‍💻 基本使用</h4>
-  <p>需要更多帮助信息，请点击：<a>文档</a></p>
   <p>1.点击「新建」以获取一段 ahk 代码；</p>
   <p>2.复制代码后粘贴到输入框；</p>
   <p>3.点击「保存」。</p>

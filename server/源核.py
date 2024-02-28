@@ -35,14 +35,14 @@ functions.update_starter()
 # 启动启动器进程
 exe_path = "ahk/AutoHotkey64.exe"
 ahk_script = "ahk/启动器.ahk"
-# exe_path = resource_path(exe_path)
-# ahk_script = resource_path(ahk_script)
+exe_path = resource_path(exe_path)
+ahk_script = resource_path(ahk_script)
 command = [exe_path, ahk_script]
 starter_process = subprocess.Popen(command, stdout=subprocess.PIPE)
 
 # 启动子进程
 # child_process = subprocess.Popen(["server/yh.exe"])
-# child_process = subprocess.Popen([resource_path("yh.exe")])
+child_process = subprocess.Popen([resource_path("yh.exe")])
 
 
 # 客户端使用 socket.emit("信号名", "信号内容") 发送消息，用下面代码接收
@@ -56,7 +56,7 @@ def handle_message(msg):
     print(f"连接socket: {msg}")
 
 
-# 开发时保留该路由，生产时可去除
+# 开发时保留该路由，打包时可去除
 # @app.route("/")
 # def index():
 #     return render_template("index.html")
@@ -79,9 +79,10 @@ def ahk():
 
         exe_path = "ahk/AutoHotkey64.exe"
         ahk_script = "ahk/index.ahk"
-
+        
         exe_path = resource_path(exe_path)
         ahk_script = resource_path(ahk_script)
+        
         arguments = paraList
         command = [exe_path, ahk_script] + arguments
         print("命令行", command, paraList)
@@ -254,16 +255,16 @@ def socket():
 def init():
     if request.method == "POST":
         data = request.get_json()
-        # while True:
-        #     # 检查子进程是否在运行
-        #     if psutil.pid_exists(data["pid"]):
-        #         # 如果程序在运行，5s 后再检查
-        #         time.sleep(5)
-        #     else:
-        #         # 如果子进程已经退出，关闭主进程
-        #         global starter_process
-        #         starter_process.kill()
-        #         os.kill(os.getpid(), signal.SIGINT)
+        while True:
+            # 检查子进程是否在运行
+            if psutil.pid_exists(data["pid"]):
+                # 如果程序在运行，5s 后再检查
+                time.sleep(5)
+            else:
+                # 如果子进程已经退出，关闭主进程
+                global starter_process
+                starter_process.kill()
+                os.kill(os.getpid(), signal.SIGINT)
 
 
 # 注册清理函数。当主进程退出时会执行，程序崩溃时不会执行
@@ -273,7 +274,8 @@ def cleanup():
     config = functions.get_config()
     functions.clear_trash_folder(config["file_path"])
 
-    # child_process.terminate()
+    # 关闭子进程、启动器进程
+    child_process.terminate()
     global starter_process
     starter_process.kill()
     print("子进程已关闭")
@@ -283,4 +285,4 @@ def cleanup():
 # 如果模块被导入为其他模块的子模块，那么这部分特定的代码逻辑就不会被执行。
 # 打包时关闭 debug 模式，否则代码会运行 2 次
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5030)
+    app.run(debug=False, host="127.0.0.1", port=5030)

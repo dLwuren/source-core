@@ -274,7 +274,7 @@ export class MoveMouse extends GraphNode {
       })
     this.appendChild(lin_0)
 
-    const input_1 = this.linkNode_input(graphNodeLayout, "位置", LinkNodeAnyEntry, "defaultInput_1");
+    const input_1 = this.linkNode_input(graphNodeLayout, "屏幕位置", LinkNodeAnyEntry, "defaultInput_1");
     lin_0.appendChild(input_1.linearLayout)
   }
 

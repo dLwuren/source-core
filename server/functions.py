@@ -8,10 +8,8 @@ import asyncio
 # def run_subprocess():
 #     exe_path = "ahk/AutoHotkey64.exe"
 #     ahk_script = "ahk/starter.ahk"
-
 #     command = [exe_path, ahk_script]
 #     print("命令行", command)
-
 #     subprocess.run(command, capture_output=True)
 
 
@@ -77,7 +75,7 @@ def pictureCenter(path):
 
 
 configFile_path = "store/store.json"
-# configFile_path = resource_path(configFile_path)
+configFile_path = resource_path(configFile_path)
 
 
 # 存储配置
@@ -137,7 +135,7 @@ def update_starter():
     # 开发时使用路径 ahk_path = "ahk/启动器.ahk"
     # 打包时使用路径  resource_path("ahk/启动器.ahk")
     ahk_path = "ahk/启动器.ahk"
-    # ahk_path = resource_path(ahk_path)
+    ahk_path = resource_path(ahk_path)
 
     with open(ahk_path, "w", encoding="utf-8") as file:
         content = (

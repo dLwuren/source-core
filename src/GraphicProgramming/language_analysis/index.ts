@@ -151,7 +151,6 @@ export class LanguageAnalysis {
 
     // 字符串
     // 将字符串中的双引号替换为转义后的双引号，并使用反引号包裹整个字符串
-    console.log('字符串', value)
     return `"${value.replaceAll("\"", `\\"`)}"`;
   }
 }

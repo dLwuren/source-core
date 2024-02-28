@@ -35,6 +35,7 @@ const updateTaskList = () => {
   }).then((response) => {
     if (!response) return
     response.json().then((data) => {
+      console.log('更新任务列表', data)
       renderListHTML(data)
     }).catch(e => console.log('请求错误', e))
   }).catch(e => console.log('请求错误', e))
@@ -159,10 +160,8 @@ document.getElementById('g-title').addEventListener('mousedown', (e) => {
 })
 
 document.getElementById('help').addEventListener('click', () => {
-  const content = `
-    <h1>123</h1>
-  `
-  createDialog('帮助', content)
+  const url = 'https://dlwuren.github.io/doc-yh/#/'
+  Niva.api.process.open(url) // 使用默认浏览器打开使用文档
 })
 
 document.getElementById('set-hotkey').addEventListener('click', () => {
@@ -263,7 +262,6 @@ Niva.addEventListener(
   (eventName: string, payload: { from: number; message: string }) => {
     const { from, message } = payload
     const data = decodeObj(message)
-    console.log(data)
 
     switch (data["type"]) {
       case "updateTaskList":

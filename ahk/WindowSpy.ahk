@@ -16,7 +16,7 @@ WinSpyGui()
 WinSpyGui() {
   Global oGui
 
-  try TraySetIcon "icons\源核logo.ico"
+  try TraySetIcon "icons\logo.ico"
   DllCall("shell32\SetCurrentProcessExplicitAppUserModelID", "wstr", "AutoHotkey.WindowSpy")
 
   oGui := Gui("AlwaysOnTop Resize MinSize +DPIScale","窗口信息")
@@ -121,7 +121,7 @@ TryUpdate() {
   ; . "class: " t2 "`n"
   ; . "进程名(exe): " t3 "`n"
   ; . "进程号(pid): " t4 "`n"
-  . "进程路径: " t5 "`n"
+  . "应用路径: " t5 "`n"
   . "窗口id: " curWin
 
   UpdateText("Ctrl_Title", WinDataText)

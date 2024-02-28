@@ -154,8 +154,6 @@ document.getElementById('manage').addEventListener('click', () => {
 
 document.getElementById('help').addEventListener('click', () => {
   const html = `
-  <h4>🔍 官方文档</h4>
-  <p>需要更多帮助信息，请点击：<a>文档</a></p>
   <h4>👆️ 基本操作</h4>
   <p>右键：打开任务节点列表，点击以插入</p>
   <p>左键：选择节点、移动节点、框选节点</p>

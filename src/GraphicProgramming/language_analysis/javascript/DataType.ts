@@ -68,7 +68,7 @@ export class DataType {
       if (index != 0) parameter += ",";
       parameter += this.next(item.value) || this.variableConversion(item.defaultValue);
     });
-console.log(parameter)
+
     return `
     const v_${index} = new Array(${parameter});
     ${next}`;

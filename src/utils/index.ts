@@ -144,11 +144,10 @@ export const createSettingsMenu = () => {
 
 /** 渲染主界面的任务卡片列表 */
 export const renderListHTML = (data) => {
-  if (Object.keys(data).length === 0) return
-
   const testList = document.getElementById('m-test-card')
   let cardHTML = ''
-
+  if (Object.keys(data).length === 0) return testList.innerHTML = cardHTML
+  
   for (let key in data) {
     const testListHTML = data[key].reduce((html, list) => {
       const lastIndex = list.lastIndexOf('\\')

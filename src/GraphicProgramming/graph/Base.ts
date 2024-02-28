@@ -242,7 +242,7 @@ export class Log extends GraphNode {
 
     this.initTitle_LinkPoint();
 
-    const { linkNode, linearLayout } = this.linkNode_input(graphNodeLayout, "^输入值", LinkNodeAnyEntry, "value", true);
+    const { linkNode, linearLayout } = this.linkNode_input(graphNodeLayout, "输入值", LinkNodeAnyEntry, "value", true);
 
     this.push(
       new LinearLayout().setStyle({ "padding": "10px" })

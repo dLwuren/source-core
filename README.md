@@ -34,8 +34,8 @@
 - 上手难度适中，只需了解一些基本概念，即可完全上手。
 
 ## 🥳 使用
-下载：https://github.com/dLwuren/source-core/releases/
-文档：https://dlwuren.github.io/doc-yh/
+- 下载：https://github.com/dLwuren/source-core/releases/
+- 文档：https://dlwuren.github.io/doc-yh/
 
 ## 🎈 交流
 交流 Q 群 `773213775`，或是搜索群名 `源核，启动`，加群验证信息直接填 `yh` 即可。话说现在还有人用 QQ 吗 👀？微信群总感觉不如 QQ 群好用唉所以用 QQ 群了。
